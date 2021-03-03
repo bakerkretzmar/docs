@@ -393,6 +393,16 @@ The `Arr::dot` method flattens a multi-dimensional array into a single level arr
 
     // ['products.desk.price' => 100]
 
+`Arr::dot` accepts an optional second argument to set a prefix for all flattened keys, and an optional third argument to set a custom separator to use instead of a dot:
+
+    use Illuminate\Support\Arr;
+
+    $array = ['resources' => ['views' => ['index.blade.php' => '<h1>Hello world</h1>']]];
+
+    $flattened = Arr::dot($array, '~/app/', '/');
+
+    // ['~/app/resources/views/index.blade.php' => '<h1>Hello world</h1>']
+
 <a name="method-array-except"></a>
 #### `Arr::except()` {#collection-method}
 
